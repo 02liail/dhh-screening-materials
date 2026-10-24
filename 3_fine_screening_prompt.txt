@@ -1,0 +1,76 @@
+# Fine screening prompt
+
+Used separately with GPT-6 and Claude Opus 5.5.
+
+---
+
+Posts and comments are judged by the same rules; for a comment, the narrator is the comment's author, and the parent post title only helps you understand the topic — do not take facts from the title that the comment itself does not state.
+
+You judge public Reddit records for a qualitative HCI study. The study asks: **when deaf and hard-of-hearing (DHH) people communicate with hearing people in everyday life, what role do communication support tools — especially AI tools — play in how they handle the situation?**
+
+Every record you receive already passed a coarse screen: it mentions a setting, a communication tool, and some outcome. Your job is stricter: decide whether the record is **usable evidence for that question**. Judge each record only on its own text and parent title. Do not look anything up. Do not infer facts the text does not state.
+
+For every record, answer four criteria, then give one decision.
+
+---
+
+## C1 — Who is telling the story? (`c1_narrator`)
+
+- `dhh_self` — the writer is DHH and describes **their own** experience. Accept when the writer identifies as deaf, Deaf, hard of hearing, having hearing loss, late-deafened, or wearing hearing aids or cochlear implants, **or** when the text clearly shows they are describing their own hearing and communication (e.g. "I can't hear my coworkers, so I turn on captions").
+  Explicit words like "I am deaf" are not required: if the writer says they use the tool because of their own hearing (e.g. "so I can understand", "to catch words I miss", "I can't follow group talk without it"), count `dhh_self`. Using a tool for one's own notes or convenience with no sign of a hearing reason does not count. Being posted in a deaf or hard-of-hearing community is not enough on its own: with no self-identification and no stated hearing reason, answer `unclear`.
+  Signals that count as `dhh_self` (any one is enough): "I'm deaf", "I'm HoH / hard of hearing", "I'm deaf in one ear", "my hearing loss", "my hearing aids", "my CI / cochlear implant", "I can't hear X so I use the app", "I read the captions because I can't follow". Do not require a formal statement of identity.
+- `hearing_or_proxy` — the writer describes someone else's experience: a hearing partner, parent, child, friend, coworker, teacher, interpreter, service worker, researcher, or developer.
+- `unclear` — the text does not let you tell.
+
+## C2 — Is the other side of the communication a hearing person, in everyday life? (`c2_hearing_partner`)
+
+- `yes` — the communication is with one or more hearing people: family, partner, friends, coworkers, managers, teachers, classmates, clerks, doctors, customer service, strangers, callers. Everyday settings include work, school, healthcare, shops and services, family, social life, and phone calls. Written or delayed exchanges (messages, emails) with hearing people also count.
+- `no` — the only counterpart is other DHH or signing people; or the use is only for media (TV, film, video, podcast, lectures watched as recordings); or the only counterpart is a machine (voice assistant, recorded audio, automated phone menu with no person).
+- `unclear` — the counterpart cannot be identified.
+
+If the tool is used to follow or talk with people (a meeting, a call, a class, a shop counter, a doctor, family, a date), treat those people as hearing unless the text says they are deaf or signing. Answer `unclear` only when no person on the other side is described at all.
+
+## C3 — Did the person use an in-scope tool in that communication, or deliberately decide not to use one? (`c3_tool_used`)
+
+In scope: technology used when communicating with other people — live transcription, automatic captions, captioning glasses, captioned phone and AI calling services, text-to-speech, large language model tools and AI assistants, sign language recognition, translation or avatar tools, machine translation used during a conversation.
+
+Out of scope: hearing aids, cochlear implants, bone-anchored devices, FM or loop systems, amplification features, sound alerts; human services such as sign language interpreters, human captioners (CART), or relay with a human operator.
+
+- `yes` — the text says the tool was actually used in this communication or in this kind of recurring communication.
+- `chose_not_to_use` — the text says the person had such a tool available but decided not to use it in a specific situation (for example: "I have a caption app but I don't take it out at dinner").
+- `no` — the tool is only recommended, asked about, planned, compared, or promoted; or the only tool is out of scope.
+- `unclear` — cannot tell.
+
+## C4 — Does the text describe at least one concrete communication with a hearing person, and what happened in it? (`c4_coping`)
+
+Answer `yes` only if the writer describes **at least one concrete communication of their own** (a specific occasion, or a specific kind of recurring occasion) with a hearing person, including:
+- who the other person is or where it happened (e.g. the pharmacist at the counter, my manager in our weekly one-on-one, my family at dinner, a customer service call), **and**
+- something about what happened in that communication: what the tool did or failed to do there, what the writer did, or what the other person did or how they reacted.
+
+Answer `no` if the text does not describe such a communication, including when it only:
+- rates the tool or lists its features ("Live Transcribe is great", "it's 90% accurate");
+- states in general that they use a tool for something, with nothing about any particular communication ("I use it for phone calls, works well");
+- says a tool does not work in some kind of place, with nothing about a particular communication ("useless in loud restaurants");
+- recommends a tool or gives advice to someone else;
+- asks which tool to buy, compares products, or explains settings;
+- discusses rules, permission, cost or insurance without describing a communication.
+
+Illustrations (invented, for guidance only):
+- "I use Live Transcribe for calls, it works fine." → `no` (general use, no particular communication).
+- "At the pharmacy I handed my phone to the pharmacist; she spoke slowly into it and I got the right medicine." → `yes`.
+- "In our team meetings the captions miss every product name, so I ask a colleague to type the key points in chat." → `yes` (a recurring kind of occasion, what the tool did, what the writer and a colleague did).
+- "Try Ava, it's free." → `no`.
+- "It's useless in loud places." → `no`.
+- "Last week at a noisy bar my friend kept talking but the app caught nothing, so we switched to texting." → `yes`.
+
+## Evidence spans
+
+For every criterion answered `dhh_self`, `yes`, or `chose_not_to_use`, copy an exact contiguous substring of the record text (character for character) into the matching `*_span` field. If you cannot copy such a span, that positive answer is not allowed. Leave spans empty for other answers.
+
+## Decision (`decision`)
+
+- `keep` — C1 = `dhh_self`, C2 = `yes`, C3 = `yes` or `chose_not_to_use`, C4 = `yes`.
+- `keep_proxy` — C1 = `hearing_or_proxy`, C2 = `yes`, C3 = `yes` or `chose_not_to_use`, C4 = `yes`. (Kept as supplementary material only.)
+- `exclude` — everything else, including any `unclear`.
+
+Judge each criterion from the text. Do not exclude a record only because it is short. Use `unclear` only when the text really does not let you tell.

@@ -1,0 +1,25 @@
+# Initial screening prompt
+
+Used with Claude Opus 5.5.
+
+---
+
+You screen public Reddit records from deaf and hard-of-hearing communities for a study of how deaf and hard-of-hearing (DHH) people cope with everyday communication difficulty with hearing people, and what role communication support resources — especially AI tools such as live transcription, automatic captioning, captioning glasses, text-to-speech, and large language model tools — play in that coping.
+
+You assign exactly one label.
+
+A = the record describes a concrete interaction context (a named or clearly implied setting, or a specific communication partner) AND states what a tool actually did there: it helped, it failed, or it created extra work.
+B = the record describes an interaction context, but the tool is only asked about, recommended, or mentioned without any setting and without any outcome.
+C = the record describes an interaction context but no tool is involved.
+D = everything else.
+
+Hard rules, in order of priority:
+1. If you are uncertain between two labels, choose D. Never guess A or B.
+2. A requires BOTH a concrete setting or partner AND an outcome of tool use in that setting. "I use app X and it is great" has neither, so it is B.
+3. evidence_span must be an exact contiguous substring of the record text, copied character for character, and must not be empty for A, B, or C. If you cannot copy such a span, the label is D.
+
+Scope of "tool". In scope: technology a DHH person uses when communicating with other people — for example live transcription, automatic captioning, captioning glasses, captioned telephone and AI calling services, text-to-speech, large language model tools and AI assistants or agents, sign language recognition, translation or avatar tools, and machine translation used to follow or take part in a conversation. Out of scope, and therefore never a reason to label A or B: medical and hearing devices (hearing aids, cochlear implants, bone-anchored devices), FM or loop systems, amplification features and apps, environmental sound alerts, and human services such as sign language interpreters, video relay with a human interpreter, or human captioners. A record about a hearing aid is not a record about a tool in this study, even when the word "AI" appears in the product name.
+
+Always label D for: developer self-promotion or beta-test recruitment, research recruitment, product comparison with no first-hand use, pure device troubleshooting, captions or subtitles for television, film, video or podcasts (media captions are not interpersonal interaction), hearing-test and diagnosis questions, and identity questions.
+
+Do not infer diagnosis, relationships, or events beyond the text.

@@ -1,0 +1,102 @@
+live transcribe
+otter.ai
+otter ai
+ava app
+" ava "
+innocaption
+captioncall
+captel
+caption call
+rogervoice
+xrai
+even realities
+whisper
+chatgpt
+chat gpt
+gemini
+copilot
+claude
+bard
+live caption
+livecaption
+auto caption
+autocaption
+automatic caption
+captioning app
+caption app
+transcription app
+speech to text
+speech-to-text
+" stt "
+transcribe
+transcription
+transcript
+voice to text
+"asr "
+speech recognition
+text to speech
+text-to-speech
+" tts "
+voice synthesis
+synthetic voice
+ai voice
+voice clone
+chatbot
+" llm "
+large language model
+generative ai
+gen ai
+genai
+" ai "
+a.i.
+artificial intelligence
+nagish
+clearcaptions
+caption(?:ed)? (?:phone|call)s?
+\bip ?cts\b
+\bip relay\b
+call screen(?:ing)?
+relay service
+captify
+caption(?:ing)? glasses
+subtitle glasses
+hearview
+aircaps
+transcribeglass
+\bxander\b
+smart glasses
+ray[- ]?ban meta
+meta (?:ray[- ]?ban|glasses)
+sign language (?:app|ai|translat\w*|recogni\w*|avatar)
+\basl (?:app|ai|translat\w*|recogni\w*|avatar)
+signing avatar
+signapse
+signall
+hand talk
+terp ?360
+sign(?:ing)? (?:to|into) (?:text|speech)
+\bgpt\b
+perplexity
+\bai (?:agent|assistant)s?\b
+rewrite (?:my|the|an) (?:email|message|text)
+live speech
+personal voice
+type to speak
+text to voice
+fireflies
+grain\.com
+\bgrain (?:app|transcript)
+meeting (?:summary|summaries|notes)
+\bai notes?\b
+(?:teams|zoom|google meet|meet) (?:captions|transcript\w*)
+voiceitt
+project relate
+(?:understand|recogni[sz]e) my (?:speech|voice|accent)
+\balexa\b
+\bsiri\b
+google assistant
+voice assistant
+google translate
+live translat\w*
+real[- ]time translat\w*
+translation app
